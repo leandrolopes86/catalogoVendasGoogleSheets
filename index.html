@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loja - Catálogo Natura/Avon</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+     <!-- Filtro por marca -->
+    <div class="filtro-marca">
+      <label for="marcaSelect">Filtrar por marca:</label>
+      <select id="marcaSelect" onchange="filtrarPorMarca()">
+        <option value="todas">Todas as marcas</option>
+        <!-- Opções serão inseridas dinamicamente -->
+      </select>
+    </div>
+    <div class="filtro-busca">
+    <label for="buscaInput">Buscar produto:</label>
+      <input type="text" id="buscaInput" placeholder="Digite uma descrição..." oninput="filtrarPorBusca()" />
+    </div>
+    <h1>Catálogo de Produtos</h1>
+    <button id="btn-carrinho" onclick="toggleCarrinho()">
+     🛒  Carrinho (<span id="contador-carrinho">0</span>)
+    </button>
+  </header>
+
+  <main>
+    <section id="produtos" class="produtos">
+      <!-- Produtos carregados dinamicamente aqui -->
+    </section>
+  </main>
+
+  <!-- Popup do carrinho -->
+  <aside id="popup-carrinho" class="hidden">
+    <div class="carrinho-conteudo">
+      <h2>Seu Carrinho</h2>
+      <ul id="lista-carrinho"></ul>
+          <!-- Linha com total e aviso -->
+      <p id="total-carrinho">Total: R$ 0,00</p>
+      <p class="aviso-preco-estoque">
+        ⚠️ Os preços e estoque estão sujeitos a alteração sem aviso prévio, favor confirmar os valores.
+      </p>
+      <div class="botoes-carrinho">
+        <button onclick="toggleCarrinho()">Fechar</button>
+        <button onclick="finalizarCompra()" id="btn-whatsapp">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="icone-whatsapp" />
+            WhatsApp
+         </button>
+         <button onclick="limparCarrinho()" id="btn-limpar">🧹 Limpar Carrinho</button>
+      </div>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+  <!--<script>
+    function finalizarCompra() {
+      alert('Função de finalizar compra ainda não implementada.');
+    }
+  </script> -->
+</body>
+</html>
